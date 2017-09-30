@@ -68,6 +68,14 @@ class TwitterClient: BDBOAuth1SessionManager {
 			} as? (URLSessionDataTask?, Error) -> Void)
 	}
 	
+	func findLatestRetweet(for id: Int, success: @escaping ((Int) -> Void), failure: @escaping ((NSError) -> Void)) {
+		get("1.1/statuses/retweets/ids.json?id=\(id)&count=1", parameters: nil, success: { (task: URLSessionDataTask, response: Any?) in
+			
+		}) { (task: URLSessionDataTask?, error: Error) in
+			
+		}
+	}
+	
 	func currentAccount(success: @escaping ((User) -> ()), failure: @escaping ((NSError) -> ())) {
 		get("1.1/account/verify_credentials.json", parameters: nil, success: { (task: URLSessionDataTask, response: Any?) in
 			let accountInfo = response as! NSDictionary

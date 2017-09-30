@@ -8,6 +8,7 @@ target 'TwitterClient' do
   # Pods for TwitterClient
   pod 'AFNetworking'
   pod 'BDBOAuth1Manager'
+  pod 'NSDateMinimalTimeAgo', '~> 0.1.0'
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
