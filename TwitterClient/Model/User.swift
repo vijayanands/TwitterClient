@@ -13,8 +13,11 @@ class User: NSObject {
 	private let screenName: NSString?
 	private let profileImageUrl: URL?
 	private let tagLine: NSString?
+	private var dictionary: NSDictionary?
+	static let userDidLogoutNotification = "UserDidLogout"
 	
 	init(userDictionary:NSDictionary) {
+		dictionary = userDictionary
 		name = userDictionary["name"] as? NSString
 		screenName = userDictionary["screen_name"] as? NSString
 		tagLine = userDictionary["description"] as? NSString
@@ -23,6 +26,33 @@ class User: NSObject {
 			profileImageUrl = URL(string: profileImageUrlString as String)
 		} else {
 			profileImageUrl = nil
+		}
+	}
+	
+	static var _currentUser: User?
+	
+	class var currentUser: User? {
+		get {
+			if _currentUser == nil {
+				let defaults = UserDefaults.standard
+				if let userData = defaults.object(forKey: "currentUserData") {
+					let dictionary = try! JSONSerialization.jsonObject(with: userData as! Data, options: [])
+					_currentUser = User(userDictionary: dictionary as! NSDictionary)
+				}
+			}
+			return _currentUser
+		}
+		set(user) {
+			_currentUser = user
+			let defaults = UserDefaults.standard
+			
+			if let user = user {
+				let data = try! JSONSerialization.data(withJSONObject: user.dictionary!, options: [])
+				defaults.set(data, forKey: "currentUserData")
+			} else {
+				defaults.set(nil, forKey: "currentUserData")
+			}
+			defaults.synchronize()
 		}
 	}
 	
