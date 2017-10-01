@@ -102,7 +102,7 @@ class TweetDetailsViewController: UIViewController {
 }
 
 extension TweetDetailsViewController: NewTweetViewControllerDelegate {
-	func newTweetViewController(newTweetViewController: NewTweetViewController, didUpdateStatus: Bool) {
+	func newTweetViewController(newTweetViewController: NewTweetViewController, didUpdateStatus: Bool, tweet: Tweet) {
 		print("In New Tweet Delegate")
 		if didUpdateStatus == true {
 			print("Updating Tweets")
