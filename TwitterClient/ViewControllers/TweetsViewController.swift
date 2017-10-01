@@ -26,7 +26,7 @@ class TweetsViewController: UIViewController {
 		// add refresh control to table view
 		tweetsTable.insertSubview(refreshControl, at: 0)
 		
-		self.navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 0.8588, blue: 0.8157, alpha: 1.0)
+		self.navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 0.7569, blue: 0.8588, alpha: 1.0)
 		
         // Do any additional setup after loading the view.
 		loadTweets()
@@ -128,5 +128,9 @@ extension TweetsViewController: UITableViewDataSource {
 		let cell = tweetsTable.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
 		cell.customInit(tweet: tweets[indexPath.row])
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tweetsTable.deselectRow(at: indexPath, animated: true)
 	}
 }
