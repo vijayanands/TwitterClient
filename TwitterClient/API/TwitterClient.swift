@@ -58,7 +58,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 		}
 	}
 	
-	func homeTimeline(since: Int?, success: @escaping (([Tweet]) -> Void), failure: @escaping ((NSError) -> Void)) {
+	func homeTimeline(since: UInt64?, success: @escaping (([Tweet]) -> Void), failure: @escaping ((NSError) -> Void)) {
 		var params = [String:Any?]()
 		params["count"] = 20
 		params["exclude_replies"] = false
@@ -75,7 +75,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 		} as (URLSessionDataTask?, Error) -> Void)
 	}
 	
-	func retweet(id: Int, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)){
+	func retweet(id: UInt64, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)){
 		post("1.1/statuses/retweet/\(id).json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response:Any?) in
 			print("successfully retweeted")
 			success()
@@ -85,7 +85,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 		}
 	}
 	
-	func favoriteTweet(id: Int, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)){
+	func favoriteTweet(id: UInt64, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)){
 		var params = [String:Any?]()
 		params["id"] = id
 		post("1.1/favorites/create.json", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response:Any?) in
@@ -97,7 +97,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 		}
 	}
 	
-	func submitTweet(status: String, inReply: Bool, replyTo: Int?, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)) {
+	func submitTweet(status: String, inReply: Bool, replyTo: UInt64?, success: @escaping ((NSDictionary) -> Void), failure: @escaping ((NSError) -> Void)) {
 		var params = [String:Any?]()
 		params["status"] = status
 		if inReply != false {
@@ -110,7 +110,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 		
 		post("1.1/statuses/update.json", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
 			print("successfully posted")
-			success()
+			success(response as! NSDictionary)
 		}) { (task: URLSessionDataTask?, error: Error) in
 			print("error posting: \(error.localizedDescription)")
 			failure(error as NSError)

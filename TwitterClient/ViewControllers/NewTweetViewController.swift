@@ -10,7 +10,7 @@ import UIKit
 
 @objc protocol NewTweetViewControllerDelegate {
 	@objc optional func newTweetViewController(newTweetViewController: NewTweetViewController,
-	                                          didUpdateStatus value: Bool)
+	                                           didUpdateStatus value: Bool, tweet: Tweet)
 }
 
 class NewTweetViewController: UIViewController {
@@ -22,7 +22,7 @@ class NewTweetViewController: UIViewController {
 	@IBOutlet weak var tweetCharsLeftLabel: UILabel!
 	
 	var replyMode = false
-	var replyTo: Int? = nil
+	var replyTo: UInt64? = nil
 	weak var delegate: NewTweetViewControllerDelegate?
 	var tweetCharsLeft = 140
 	
@@ -43,7 +43,7 @@ class NewTweetViewController: UIViewController {
 		tweetTextView.delegate = self
 
 		tweetCharsLeft = 140
-		tweetCharsLeftLabel.text = String("\(tweetCharsLeft ?? 140)")
+		tweetCharsLeftLabel.text = "140"
 		tweetCharsLeftLabel.textColor = UIColor.green
     }
 
@@ -62,12 +62,12 @@ class NewTweetViewController: UIViewController {
 	
 	@IBAction func onTweet(_ sender: Any) {
 		print("\(tweetTextView.text)")
-		TwitterClient.sharedInstance?.submitTweet(status: tweetTextView.text, inReply: replyMode, replyTo: replyTo, success: {
+		TwitterClient.sharedInstance?.submitTweet(status: tweetTextView.text, inReply: replyMode, replyTo: replyTo, success: { (response: NSDictionary) in
 			print("success posting tweet")
-			self.delegate?.newTweetViewController!(newTweetViewController: self, didUpdateStatus: true)
+			let tweet = Tweet(tweetDictionary: response)
+			self.delegate?.newTweetViewController!(newTweetViewController: self, didUpdateStatus: true, tweet: tweet)
 		}, failure: { (error: Error) in
 			print("error posting: \(error.localizedDescription)")
-			self.delegate?.newTweetViewController!(newTweetViewController: self, didUpdateStatus: false)
 		})
 		dismiss(animated: true, completion: nil)
 	}

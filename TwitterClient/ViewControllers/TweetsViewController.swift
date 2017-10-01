@@ -65,6 +65,11 @@ class TweetsViewController: UIViewController {
 		})
 	}
 	
+	func addTweetToTweetsTable(tweet:Tweet) {
+		self.tweets.insert(tweet, at: 0)
+		tweetsTable.reloadData()
+	}
+	
 	func incrementallyLoadTweets() {
 		TwitterClient.sharedInstance?.homeTimeline(since: tweets[0].id, success: { (tweets: [Tweet]) in
 			let currentSize = self.tweets.count
@@ -109,11 +114,12 @@ class TweetsViewController: UIViewController {
 }
 
 extension TweetsViewController: NewTweetViewControllerDelegate {
-	func newTweetViewController(newTweetViewController: NewTweetViewController, didUpdateStatus value: Bool) {
+	func newTweetViewController(newTweetViewController: NewTweetViewController, didUpdateStatus value: Bool, tweet: Tweet) {
 		print("In New Tweet Delegate")
 		if value == true {
 			print("Updating Tweets")
-			self.loadTweets()
+			self.addTweetToTweetsTable(tweet: tweet) // this does not call the network request, but directly add to the tweets array
+//			self.loadTweets()
 		} else {
 			print("Unable to Update Tweet")
 		}
@@ -132,10 +138,7 @@ extension TweetsViewController: TweetDetailsViewControllerDelegate {
 	}
 }
 
-extension TweetsViewController: UITableViewDelegate {
-}
-
-extension TweetsViewController: UITableViewDataSource {
+extension TweetsViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if tweets != nil {
 			return tweets.count
