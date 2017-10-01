@@ -102,6 +102,10 @@ class TwitterClient: BDBOAuth1SessionManager {
 		params["status"] = status
 		if inReply != false {
 			params["in_reply_to_status_id"] = replyTo!
+			if let screenNameString = User.currentUser?.screenName {
+				let replyFromString = "@" + (screenNameString as String) + ": "
+				params["status"] = replyFromString + status
+			}
 		}
 		
 		post("1.1/statuses/update.json", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
