@@ -19,10 +19,12 @@ class NewTweetViewController: UIViewController {
 	@IBOutlet weak var screenNameLabel: UILabel!
 	@IBOutlet weak var tweetTextView: UITextView!
 	@IBOutlet weak var profileImage: UIImageView!
+	@IBOutlet weak var tweetCharsLeftLabel: UILabel!
 	
 	var replyMode = false
 	var replyTo: Int? = nil
 	weak var delegate: NewTweetViewControllerDelegate?
+	var tweetCharsLeft = 140
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,11 @@ class NewTweetViewController: UIViewController {
 		tweetTextView.becomeFirstResponder()
 		tweetTextView!.layer.borderWidth = 1
 		tweetTextView!.layer.borderColor = UIColor.lightGray.cgColor
+		tweetTextView.delegate = self
+
+		tweetCharsLeft = 140
+		tweetCharsLeftLabel.text = String("\(tweetCharsLeft ?? 140)")
+		tweetCharsLeftLabel.textColor = UIColor.green
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,4 +82,17 @@ class NewTweetViewController: UIViewController {
     }
     */
 
+}
+
+extension NewTweetViewController : UITextViewDelegate {
+	func textViewDidChange(_ textView: UITextView) {
+		let noOfChars = textView.text.characters.count
+		let nofOfCharsLeft = self.tweetCharsLeft - noOfChars
+		tweetCharsLeftLabel.text = String("\(nofOfCharsLeft)")
+		if nofOfCharsLeft < 0 {
+			tweetCharsLeftLabel.textColor = UIColor.red
+		} else {
+			tweetCharsLeftLabel.textColor = UIColor.green
+		}
+	}
 }

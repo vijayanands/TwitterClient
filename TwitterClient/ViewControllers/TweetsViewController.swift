@@ -12,6 +12,8 @@ class TweetsViewController: UIViewController {
 	
 	@IBOutlet weak var tweetsTable: UITableView!
 	var tweets: [Tweet]!
+	var isMoreDataLoading = false
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,7 @@ class TweetsViewController: UIViewController {
 	}
 	
 	func loadTweets() {
-		TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) in
+		TwitterClient.sharedInstance?.homeTimeline(since: nil, success: { (tweets: [Tweet]) in
 			self.tweets = tweets
 			for tweet in self.tweets {
 				tweet.printTweet()
@@ -61,6 +63,23 @@ class TweetsViewController: UIViewController {
 		}, failure: { (error: NSError) in
 			print("error: \(error.localizedDescription)")
 		})
+	}
+	
+	func incrementallyLoadTweets() {
+		TwitterClient.sharedInstance?.homeTimeline(since: tweets[0].id, success: { (tweets: [Tweet]) in
+			let currentSize = self.tweets.count
+			self.tweets = self.tweets + tweets
+			for tweet in self.tweets {
+				tweet.printTweet()
+			}
+			self.tweetsTable.reloadData()
+			let indexPath = IndexPath(row: currentSize, section: 0)
+			self.tweetsTable.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+		}, failure: { (error: NSError) in
+			print("error: \(error.localizedDescription)")
+		})
+		// Update flag
+		isMoreDataLoading = false
 	}
 	
 	@IBAction func onCompose(_ sender: Any) {
@@ -132,5 +151,23 @@ extension TweetsViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tweetsTable.deselectRow(at: indexPath, animated: true)
+	}
+}
+
+extension TweetsViewController : UIScrollViewDelegate {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		// Calculate the position of one screen length before the bottom of the results
+		let scrollViewContentHeight = tweetsTable.contentSize.height
+		let tableViewBounds = tweetsTable.bounds.size.height
+		let scrollOffsetThreshold = scrollViewContentHeight - tableViewBounds
+		
+		// When the user has scrolled past the threshold, start requesting
+		let currentOffset = scrollView.contentOffset.y
+		if(currentOffset > scrollOffsetThreshold && tweetsTable.isDragging) {
+			isMoreDataLoading = true
+			
+			// Code to load more results
+			incrementallyLoadTweets()
+		}
 	}
 }

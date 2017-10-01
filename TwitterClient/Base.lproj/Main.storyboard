@@ -58,7 +58,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZFV-Fh-Z11" id="6Ng-Hq-rHL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgN-hM-c09">
@@ -260,6 +260,12 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbR-np-aC5">
+                                <rect key="frame" x="328" y="162" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -270,10 +276,13 @@
                             <constraint firstItem="ytX-eC-dcS" firstAttribute="top" secondItem="bZi-5l-ubS" secondAttribute="bottom" constant="8" id="IKR-9Z-xYI"/>
                             <constraint firstItem="DHy-Yy-Hdh" firstAttribute="trailing" secondItem="bZi-5l-ubS" secondAttribute="trailing" constant="8" id="J96-RE-Hmi"/>
                             <constraint firstItem="ytX-eC-dcS" firstAttribute="leading" secondItem="bZi-5l-ubS" secondAttribute="leading" id="NYh-0B-sda"/>
+                            <constraint firstItem="Ol3-8F-7Jq" firstAttribute="top" secondItem="hbR-np-aC5" secondAttribute="bottom" constant="2" id="UOX-PH-VYk"/>
                             <constraint firstItem="ziB-t3-1AV" firstAttribute="leading" secondItem="DHy-Yy-Hdh" secondAttribute="leading" constant="8" id="VnU-gu-QWB"/>
+                            <constraint firstItem="hbR-np-aC5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ytX-eC-dcS" secondAttribute="bottom" constant="12" id="XeD-rn-HTr"/>
                             <constraint firstItem="Ol3-8F-7Jq" firstAttribute="bottom" secondItem="DHy-Yy-Hdh" secondAttribute="bottom" id="j9P-YQ-KQK"/>
                             <constraint firstItem="Ol3-8F-7Jq" firstAttribute="trailing" secondItem="DHy-Yy-Hdh" secondAttribute="trailing" id="jP3-fM-uJv"/>
                             <constraint firstItem="bZi-5l-ubS" firstAttribute="top" secondItem="ziB-t3-1AV" secondAttribute="top" id="nQf-94-s0e"/>
+                            <constraint firstItem="DHy-Yy-Hdh" firstAttribute="trailing" secondItem="hbR-np-aC5" secondAttribute="trailing" constant="8" id="ro6-YF-faR"/>
                             <constraint firstItem="bZi-5l-ubS" firstAttribute="top" secondItem="DHy-Yy-Hdh" secondAttribute="top" constant="8" id="sDF-rA-ToZ"/>
                             <constraint firstItem="Ol3-8F-7Jq" firstAttribute="top" secondItem="ziB-t3-1AV" secondAttribute="bottom" constant="8" id="uIh-Mn-KKO"/>
                             <constraint firstItem="ziB-t3-1AV" firstAttribute="top" secondItem="DHy-Yy-Hdh" secondAttribute="top" constant="8" id="xwP-8s-A1j"/>
@@ -296,6 +305,7 @@
                         <outlet property="nameLabel" destination="bZi-5l-ubS" id="Ec8-11-kfK"/>
                         <outlet property="profileImage" destination="ziB-t3-1AV" id="hiM-sQ-aOo"/>
                         <outlet property="screenNameLabel" destination="ytX-eC-dcS" id="ttO-Us-8av"/>
+                        <outlet property="tweetCharsLeftLabel" destination="hbR-np-aC5" id="ifL-cK-Utk"/>
                         <outlet property="tweetTextView" destination="Ol3-8F-7Jq" id="S09-d5-yxo"/>
                     </connections>
                 </viewController>
