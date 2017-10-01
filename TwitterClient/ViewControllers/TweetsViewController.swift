@@ -51,7 +51,7 @@ class TweetsViewController: UIViewController {
 		refreshControl.endRefreshing()
 	}
 	
-	fileprivate func loadTweets() {
+	func loadTweets() {
 		TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) in
 			self.tweets = tweets
 			for tweet in self.tweets {
@@ -63,21 +63,57 @@ class TweetsViewController: UIViewController {
 		})
 	}
 	
-    // MARK: - Navigation
+	@IBAction func onCompose(_ sender: Any) {
+		print("in on compose")
+		performSegue(withIdentifier: "NewTweetViewController", sender: nil)
+	}
+	
+	// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-		let destinationViewController = segue.destination as! TweetDetailsViewController
-		let cell = sender as! TweetCell
-		let indexPath = tweetsTable.indexPath(for: cell)
-		destinationViewController.setTweetDetail(for: tweets[(indexPath?.row)!])
+		let segueId = segue.identifier
+		let navigationController = segue.destination as! UINavigationController
+		if (segueId == "NewTweetSegue") {
+			let newTweetViewController = navigationController.topViewController as! NewTweetViewController
+			newTweetViewController.customInit(delegate: self)
+		} else {
+			let destinationViewController = navigationController.topViewController as! TweetDetailsViewController
+			let cell = sender as! TweetCell
+			let indexPath = tweetsTable.indexPath(for: cell)
+			destinationViewController.tweet = tweets[(indexPath?.row)!]
+			destinationViewController.delegate = self
+		}
     }
 }
 
+extension TweetsViewController: NewTweetViewControllerDelegate {
+	func newTweetViewController(newTweetViewController: NewTweetViewController, didUpdateStatus value: Bool) {
+		print("In New Tweet Delegate")
+		if value == true {
+			print("Updating Tweets")
+			self.loadTweets()
+		} else {
+			print("Unable to Update Tweet")
+		}
+	}
+}
+
+extension TweetsViewController: TweetDetailsViewControllerDelegate {
+	func tweetDetailsViewController(tweetDetailsViewController: TweetDetailsViewController, didUpdateStatus value: Bool) {
+		print("In Tweet Detail Delegate")
+		if value == true {
+			print("Updating Tweets")
+			self.loadTweets()
+		} else {
+			print("Unable to Update Tweet")
+		}
+	}
+}
+
 extension TweetsViewController: UITableViewDelegate {
-	
 }
 
 extension TweetsViewController: UITableViewDataSource {

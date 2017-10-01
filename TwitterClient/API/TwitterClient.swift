@@ -59,7 +59,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 	}
 	
 	func homeTimeline(success: @escaping (([Tweet]) -> Void), failure: @escaping ((NSError) -> Void)) {
-		get("1.1/statuses/home_timeline.json", parameters: nil, success:{ (task: URLSessionDataTask, response: Any?) in
+		get("1.1/statuses/home_timeline.json", parameters: ["exclude_replies": false], success:{ (task: URLSessionDataTask, response: Any?) in
 			let dictionaries = response as! [NSDictionary]
 			let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
 			success(tweets)
@@ -70,9 +70,25 @@ class TwitterClient: BDBOAuth1SessionManager {
 	
 	func findLatestRetweet(for id: Int, success: @escaping ((Int) -> Void), failure: @escaping ((NSError) -> Void)) {
 		get("1.1/statuses/retweets/ids.json?id=\(id)&count=1", parameters: nil, success: { (task: URLSessionDataTask, response: Any?) in
-			
+
 		}) { (task: URLSessionDataTask?, error: Error) in
 			
+		}
+	}
+	
+	func submitTweet(status: String, inReply: Bool, replyTo: Int?, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)) {
+		var params = [String:Any?]()
+		params["status"] = status
+		if inReply != false {
+			params["in_reply_to_status_id"] = replyTo!
+		}
+		
+		post("1.1/statuses/update.json", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+			print("successfully posted")
+			success()
+		}) { (task: URLSessionDataTask?, error: Error) in
+			print("error posting: \(error.localizedDescription)")
+			failure(error as NSError)
 		}
 	}
 	

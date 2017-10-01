@@ -20,6 +20,7 @@
 		AF6A69D11F7B66F30020AF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF6A69D01F7B66F30020AF40 /* Assets.xcassets */; };
 		AF6A69D41F7B66F30020AF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A69D21F7B66F30020AF40 /* LaunchScreen.storyboard */; };
 		AF7973E41F7FFB4100B46F1B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7973E31F7FFB4100B46F1B /* Utilities.swift */; };
+		AFE652CB1F80717F00121AAF /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE652CA1F80717F00121AAF /* NewTweetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AF6A69D31F7B66F30020AF40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF6A69D51F7B66F30020AF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7973E31F7FFB4100B46F1B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		AFE652CA1F80717F00121AAF /* NewTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				AF0B684D1F80362B00622964 /* TweetDetailsViewController.swift */,
 				AF0491551F7CC6AA00E3AF77 /* LoginViewController.swift */,
 				AF56BDB61F7F595300AC58B1 /* TweetsViewController.swift */,
+				AFE652CA1F80717F00121AAF /* NewTweetViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				AF56BDB31F7EC4BF00AC58B1 /* User.swift in Sources */,
 				AF7973E41F7FFB4100B46F1B /* Utilities.swift in Sources */,
 				AF6A69CA1F7B66F30020AF40 /* AppDelegate.swift in Sources */,
+				AFE652CB1F80717F00121AAF /* NewTweetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

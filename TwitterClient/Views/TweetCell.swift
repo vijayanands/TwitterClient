@@ -21,6 +21,8 @@ class TweetCell: UITableViewCell {
 	@IBOutlet weak var timestampLabel: UILabel!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var usernameLabel: UILabel!
+	@IBOutlet weak var inReplyToUser: UILabel!
+	@IBOutlet weak var inReplyToLabel: UILabel!
 	
 	func customInit(tweet: Tweet) {
 		nameLabel.text = tweet.user?.name as String?
@@ -45,6 +47,23 @@ class TweetCell: UITableViewCell {
 		}
 		// set timestamp of tweet
 		timestampLabel.text = tweet.createdAt?.timeAgo()
+		if tweet.inReplyTo != nil {
+			inReplyToUser.isHidden = false
+			inReplyToLabel.isHidden = false
+			inReplyToUser.text = tweet.inReplyTo! as String
+		} else {
+			inReplyToUser.isHidden = true
+			inReplyToLabel.isHidden = true
+		}
+		
+		if tweet.retweetedBy != nil {
+			retweetInfoLabel.isHidden = false
+			retweetImage1.isHidden = false
+			retweetInfoLabel.text = (tweet.retweetedBy! as String) + " retweeted"
+		} else {
+			retweetInfoLabel.isHidden = true
+			retweetImage1.isHidden = true
+		}
 	}
 	
 	override func awakeFromNib() {
