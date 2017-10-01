@@ -79,7 +79,7 @@ class TweetsViewController: UIViewController {
 			}
 			self.tweetsTable.reloadData()
 			let indexPath = IndexPath(row: currentSize, section: 0)
-			self.tweetsTable.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+			self.tweetsTable.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: true)
 		}, failure: { (error: NSError) in
 			print("error: \(error.localizedDescription)")
 		})
