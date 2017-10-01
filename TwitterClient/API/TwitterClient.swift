@@ -59,20 +59,37 @@ class TwitterClient: BDBOAuth1SessionManager {
 	}
 	
 	func homeTimeline(success: @escaping (([Tweet]) -> Void), failure: @escaping ((NSError) -> Void)) {
-		get("1.1/statuses/home_timeline.json", parameters: ["exclude_replies": false], success:{ (task: URLSessionDataTask, response: Any?) in
+		var params = [String:Any?]()
+		params["count"] = 20
+		params["exclude_replies"] = false
+		get("1.1/statuses/home_timeline.json", parameters: params, success:{ (task: URLSessionDataTask, response: Any?) in
 			let dictionaries = response as! [NSDictionary]
 			let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
 			success(tweets)
-		}, failure: { (task: URLSessionDataTask?, error: NSError) in
-			failure(error)
-			} as? (URLSessionDataTask?, Error) -> Void)
+		}, failure: { (task: URLSessionDataTask?, error: Error) in
+			failure(error as NSError)
+		} as (URLSessionDataTask?, Error) -> Void)
 	}
 	
-	func findLatestRetweet(for id: Int, success: @escaping ((Int) -> Void), failure: @escaping ((NSError) -> Void)) {
-		get("1.1/statuses/retweets/ids.json?id=\(id)&count=1", parameters: nil, success: { (task: URLSessionDataTask, response: Any?) in
-
+	func retweet(id: Int, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)){
+		post("1.1/statuses/retweet/\(id).json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response:Any?) in
+			print("successfully retweeted")
+			success()
 		}) { (task: URLSessionDataTask?, error: Error) in
-			
+			print("error: \(error.localizedDescription)")
+			failure(error as NSError)
+		}
+	}
+	
+	func favoriteTweet(id: Int, success: @escaping (() -> Void), failure: @escaping ((NSError) -> Void)){
+		var params = [String:Any?]()
+		params["id"] = id
+		post("1.1/favorites/create.json", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response:Any?) in
+			print("successfully favorited")
+			success()
+		}) { (task: URLSessionDataTask?, error: Error) in
+			print("error: \(error.localizedDescription)")
+			failure(error as NSError)
 		}
 	}
 	

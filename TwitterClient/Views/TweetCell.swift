@@ -14,7 +14,6 @@ class TweetCell: UITableViewCell {
 	@IBOutlet weak var profileImage: UIImageView!
 	@IBOutlet weak var starImage: UIImageView!
 	@IBOutlet weak var retweetImage2: UIImageView!
-	@IBOutlet weak var replyImage: UIImageView!
 	@IBOutlet weak var retweetImage1: UIImageView!
 	@IBOutlet weak var retweetInfoLabel: UILabel!
 	@IBOutlet weak var tweetTextLabel: UILabel!
@@ -23,6 +22,8 @@ class TweetCell: UITableViewCell {
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var inReplyToUser: UILabel!
 	@IBOutlet weak var inReplyToLabel: UILabel!
+	@IBOutlet weak var retweetCount: UILabel!
+	@IBOutlet weak var favoritesCount: UILabel!
 	
 	func customInit(tweet: Tweet) {
 		nameLabel.text = tweet.user?.name as String?
@@ -30,9 +31,11 @@ class TweetCell: UITableViewCell {
 		Utilities.setImage(forImage: profileImage, using: (tweet.user?.profileImageUrl!)!)
 		tweetTextLabel.text = tweet.text as String?
 		starImage.image = UIImage(named: "star.png")
+		favoritesCount.text = String("\(tweet.favoriteCount ?? 0)")
 		retweetImage1.image = UIImage(named: "retweet.png")
 		retweetImage2.image = UIImage(named: "retweet.png")
-		replyImage.image = UIImage(named: "reply.png")
+		retweetCount.text = String("\(tweet.retweetCount ?? 0)")
+
 		if let retweet_count = tweet.retweetCount {
 			if retweet_count > 0 {
 				retweetImage1.isHidden = false

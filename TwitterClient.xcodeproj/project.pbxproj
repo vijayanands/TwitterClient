@@ -42,6 +42,7 @@
 		AF6A69D51F7B66F30020AF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7973E31F7FFB4100B46F1B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AFE652CA1F80717F00121AAF /* NewTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
+		AFE652CC1F81658100121AAF /* TwitterClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwitterClient.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +132,7 @@
 		AF6A69C81F7B66F30020AF40 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				AFE652CC1F81658100121AAF /* TwitterClient.entitlements */,
 				AF56BDB81F7F6D0400AC58B1 /* Views */,
 				AF04914E1F7CBD6700E3AF77 /* Model */,
 				AF04914D1F7CBD6000E3AF77 /* API */,
@@ -180,6 +182,11 @@
 					AF6A69C51F7B66F30020AF40 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -424,7 +431,9 @@
 			baseConfigurationReference = 769C6CECD66A02434210C396 /* Pods-TwitterClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TwitterClient/TwitterClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 278DEM2K6B;
 				INFOPLIST_FILE = TwitterClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.TwitterClient;
@@ -439,7 +448,9 @@
 			baseConfigurationReference = 35EC8AFA7E4FADEFF45C32FF /* Pods-TwitterClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TwitterClient/TwitterClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 278DEM2K6B;
 				INFOPLIST_FILE = TwitterClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.TwitterClient;

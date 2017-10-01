@@ -57,29 +57,35 @@ class TweetDetailsViewController: UIViewController {
 	}
 	
 	@IBAction func onSelect(_ sender: UISegmentedControl) {
-		let index = sender.selectedSegmentIndex
 		if sender.selectedSegmentIndex == 0 {
 			// reply tweet
 			performSegue(withIdentifier: "ReplyTweetSegue", sender: nil)
 			tweetFunctionsControl.selectedSegmentIndex = UISegmentedControlNoSegment
-
-//			dismiss(animated: true, completion: nil)
 		}
 		if sender.selectedSegmentIndex == 1 {
 			// retweet
 			tweetFunctionsControl.selectedSegmentIndex = UISegmentedControlNoSegment
-
-//			dismiss(animated: true, completion: nil)
+			TwitterClient.sharedInstance?.retweet(id: (tweet?.id)!, success: { () in
+				print("Retweet Successful")
+				self.delegate?.tweetDetailsViewController!(tweetDetailsViewController: self, didUpdateStatus: true)
+			}, failure: { (error: NSError) in
+				print("error: \(error.localizedDescription)")
+			})
+			dismiss(animated: true, completion: nil)
 		}
 		if sender.selectedSegmentIndex == 2 {
 			// favorite tweet
 			tweetFunctionsControl.selectedSegmentIndex = UISegmentedControlNoSegment
-
-//			dismiss(animated: true, completion: nil)
+			TwitterClient.sharedInstance?.favoriteTweet(id: (tweet?.id)!, success: {
+				self.delegate?.tweetDetailsViewController!(tweetDetailsViewController: self, didUpdateStatus: true)
+			}, failure: { (error: NSError) in
+				print("error: \(error.localizedDescription)")
+			})
+			dismiss(animated: true, completion: nil)
 		}
 	}
-
-    // MARK: - Navigation
+	
+	// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
