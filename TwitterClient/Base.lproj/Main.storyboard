@@ -376,32 +376,28 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="c0h-Lu-wvI">
-                                <rect key="frame" x="0.0" y="273" width="375" height="29"/>
-                                <segments>
-                                    <segment title="" image="reply"/>
-                                    <segment title="" image="retweet"/>
-                                    <segment title="" image="star"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onSelect:" destination="4LE-Sr-BEV" eventType="valueChanged" id="jst-Ga-27t"/>
-                                </connections>
-                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scf-KG-308">
+                                <rect key="frame" x="0.0" y="285" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yNn-Dm-IBl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c0h-Lu-wvI" firstAttribute="top" secondItem="sbc-i0-Oe0" secondAttribute="bottom" constant="8" id="2ge-42-8fN"/>
                             <constraint firstItem="3Lz-oO-Uw7" firstAttribute="top" secondItem="DAp-OU-cYz" secondAttribute="top" id="3S8-59-jpW"/>
                             <constraint firstItem="sbc-i0-Oe0" firstAttribute="top" secondItem="fwA-wN-dfX" secondAttribute="bottom" constant="12" id="4MQ-Iq-sW9"/>
                             <constraint firstItem="kL2-i7-cDG" firstAttribute="top" secondItem="3Lz-oO-Uw7" secondAttribute="bottom" constant="8" id="6Mj-VH-vPF"/>
                             <constraint firstItem="3Lz-oO-Uw7" firstAttribute="leading" secondItem="DAp-OU-cYz" secondAttribute="trailing" constant="12" id="8Gr-Gq-stq"/>
                             <constraint firstItem="DAp-OU-cYz" firstAttribute="leading" secondItem="BFI-Op-gCK" secondAttribute="leading" constant="8" id="8eW-b1-fzJ"/>
+                            <constraint firstItem="scf-KG-308" firstAttribute="top" secondItem="sbc-i0-Oe0" secondAttribute="bottom" constant="20" id="CMh-XB-F2D"/>
                             <constraint firstItem="476-dm-aAK" firstAttribute="centerY" secondItem="sbc-i0-Oe0" secondAttribute="centerY" id="Dsv-WB-n3W"/>
                             <constraint firstItem="476-dm-aAK" firstAttribute="leading" secondItem="Yy1-1x-xek" secondAttribute="trailing" constant="4" id="MJU-N2-HCF"/>
                             <constraint firstItem="BFI-Op-gCK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iHO-iR-csB" secondAttribute="trailing" constant="8" id="OFx-W8-kT4"/>
-                            <constraint firstItem="c0h-Lu-wvI" firstAttribute="trailing" secondItem="BFI-Op-gCK" secondAttribute="trailing" id="OxE-0P-FiN"/>
                             <constraint firstItem="BFI-Op-gCK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fwA-wN-dfX" secondAttribute="trailing" constant="8" id="RoB-f3-MmZ"/>
                             <constraint firstItem="TUL-Jc-ebt" firstAttribute="centerY" secondItem="sbc-i0-Oe0" secondAttribute="centerY" id="SEK-gh-xUV"/>
+                            <constraint firstItem="scf-KG-308" firstAttribute="trailing" secondItem="BFI-Op-gCK" secondAttribute="trailing" id="ScY-bZ-84Q"/>
                             <constraint firstItem="iHO-iR-csB" firstAttribute="top" secondItem="DAp-OU-cYz" secondAttribute="bottom" constant="12" id="SxG-T4-dQD"/>
                             <constraint firstItem="BFI-Op-gCK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Lz-oO-Uw7" secondAttribute="trailing" constant="8" id="T0F-JC-tT5"/>
                             <constraint firstItem="Yy1-1x-xek" firstAttribute="leading" secondItem="TUL-Jc-ebt" secondAttribute="trailing" constant="24" id="UJB-ux-Tko"/>
@@ -409,11 +405,11 @@
                             <constraint firstItem="fwA-wN-dfX" firstAttribute="top" secondItem="iHO-iR-csB" secondAttribute="bottom" constant="8" id="X2y-zq-gni"/>
                             <constraint firstItem="iHO-iR-csB" firstAttribute="leading" secondItem="BFI-Op-gCK" secondAttribute="leading" constant="8" id="YMh-UW-1S6"/>
                             <constraint firstItem="fwA-wN-dfX" firstAttribute="leading" secondItem="BFI-Op-gCK" secondAttribute="leading" constant="8" id="d6K-gw-xmX"/>
-                            <constraint firstItem="c0h-Lu-wvI" firstAttribute="leading" secondItem="BFI-Op-gCK" secondAttribute="leading" id="dTY-kB-wxJ"/>
                             <constraint firstItem="kL2-i7-cDG" firstAttribute="leading" secondItem="3Lz-oO-Uw7" secondAttribute="leading" id="gP4-RT-O7O"/>
                             <constraint firstItem="Yy1-1x-xek" firstAttribute="centerY" secondItem="sbc-i0-Oe0" secondAttribute="centerY" id="gxe-kF-ciu"/>
                             <constraint firstItem="TUL-Jc-ebt" firstAttribute="leading" secondItem="sbc-i0-Oe0" secondAttribute="trailing" constant="4" id="ipJ-P8-DeE"/>
                             <constraint firstItem="sbc-i0-Oe0" firstAttribute="leading" secondItem="fwA-wN-dfX" secondAttribute="leading" id="lwb-kI-coi"/>
+                            <constraint firstItem="scf-KG-308" firstAttribute="leading" secondItem="BFI-Op-gCK" secondAttribute="leading" id="rF7-5b-31m"/>
                             <constraint firstItem="BFI-Op-gCK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="476-dm-aAK" secondAttribute="trailing" constant="8" id="tAI-cl-i18"/>
                             <constraint firstItem="3Lz-oO-Uw7" firstAttribute="top" secondItem="BFI-Op-gCK" secondAttribute="top" constant="8" id="ygY-Bj-g2H"/>
                         </constraints>
@@ -427,12 +423,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonBackgroundView" destination="scf-KG-308" id="ofi-SO-cKB"/>
                         <outlet property="favoritesCountLabel" destination="Yy1-1x-xek" id="4xO-Nu-WB4"/>
                         <outlet property="nameLabel" destination="3Lz-oO-Uw7" id="QFh-qE-Sxz"/>
                         <outlet property="profileImage" destination="DAp-OU-cYz" id="LJW-O5-kHg"/>
                         <outlet property="retweetCountLabel" destination="sbc-i0-Oe0" id="qMH-FW-dcn"/>
                         <outlet property="timestampLabel" destination="fwA-wN-dfX" id="cZc-xK-tZq"/>
-                        <outlet property="tweetFunctionsControl" destination="c0h-Lu-wvI" id="8e6-8R-GAS"/>
                         <outlet property="tweetTextLabel" destination="iHO-iR-csB" id="2lq-x8-nqC"/>
                         <outlet property="usernameLabel" destination="kL2-i7-cDG" id="IqQ-Ws-7uJ"/>
                         <segue destination="eM9-je-73T" kind="presentation" identifier="ReplyTweetSegue" id="Lxq-YU-Shj"/>
@@ -497,11 +493,6 @@
             <point key="canvasLocation" x="2408" y="115.14242878560721"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="reply" width="12" height="12"/>
-        <image name="retweet" width="12" height="12"/>
-        <image name="star" width="12" height="12"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Lxq-YU-Shj"/>
     </inferredMetricsTieBreakers>

@@ -41,22 +41,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.557877"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "setTweetDetail()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "TwitterClient/API/TwitterClient.swift"
             timestampString = "528611860.557984"
             startingColumnNumber = "9223372036854775807"
@@ -266,29 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.558586"
+            timestampString = "528687946.503936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "newTweetViewController(newTweetViewController:didUpdateStatus:tweet:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.558653"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "setTweetDetail()"
-            landmarkType = "7">
+            startingLineNumber = "149"
+            endingLineNumber = "149">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -458,60 +424,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.55895"
+            timestampString = "528687946.504257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "onSelect(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterClient.TweetDetailsViewController.onSelect(__ObjC.UISegmentedControl) -&gt; ()"
-                  moduleName = "TwitterClient"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sujavijay/Desktop/codepath/TwitterClient/TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-                  timestampString = "528588744.085246"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "2156">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in TwitterClient.TweetDetailsViewController.onSelect(__ObjC.UISegmentedControl) -&gt; ()"
-                  moduleName = "TwitterClient"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sujavijay/Desktop/codepath/TwitterClient/TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-                  timestampString = "528588744.089573"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "21">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559026"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "onSelect(_:)"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -522,12 +440,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559084"
+            timestampString = "528687946.50434"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "onSelect(_:)"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -538,12 +456,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559142"
+            timestampString = "528687946.504412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "onSelect(_:)"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -554,13 +472,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559201"
+            timestampString = "528687946.504483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "onSelect(_:)"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
+            timestampString = "528687946.504551"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "TweetDetailsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -746,44 +680,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559644"
+            timestampString = "528687946.504739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559702"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "onSelect(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "onSelect(_:)"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "newTweetViewController(newTweetViewController:didUpdateStatus:tweet:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -826,13 +728,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClient/ViewControllers/TweetDetailsViewController.swift"
-            timestampString = "528611860.559903"
+            timestampString = "528687946.504842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "newTweetViewController(newTweetViewController:didUpdateStatus:tweet:)"
-            landmarkType = "7">
+            startingLineNumber = "149"
+            endingLineNumber = "149">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
